@@ -8,9 +8,22 @@ public class Player : MonoBehaviour {
     private Animator myAnimator;
     [SerializeField]
     private float movementSpeed;
+    [SerializeField]
+    private Transform[] groundPoints;
+    [SerializeField]
+    private float groundRadius;
+    [SerializeField]
+    private LayerMask Ground;
+
     private bool attack;
     private bool dash;
+    private bool jump;
+    [SerializeField]
+    private bool airControl;
+    [SerializeField]
+    private float jumpForce;
     private bool running;
+    private bool isGrounded;
     private bool facingRight;
     private float tapSpeed = 0.5f;
     private float lastTapTime = 0;
@@ -36,19 +49,29 @@ public class Player : MonoBehaviour {
 	void FixedUpdate ()
 	{
         float horizontal = Input.GetAxis("Horizontal");
-
+        isGrounded = IsGrounded();
 		HandleMovement(horizontal);
         HandleRun();
+        Flip(horizontal);
         HandleDash(horizontal);
         HandleAttacks();
-        Flip(horizontal);
+        HandleLayer();
         ResetValues();
     }
 
 	private void HandleMovement(float horizontal)
 	{
-
-        if (!myAnimator.GetBool("isDash") && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (myRigidbody.velocity.y < 0)
+        {
+            myAnimator.SetBool("land", true);
+        }
+        if (isGrounded && jump)
+        {
+            isGrounded = false;
+            myRigidbody.AddForce(new Vector2(0, jumpForce));
+            myAnimator.SetTrigger("jump");
+        }
+        if (!myAnimator.GetBool("isDash") && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && (isGrounded || airControl))
         {
             if (this.myAnimator.GetBool("isRunning"))
             myRigidbody.velocity = new Vector2(horizontal * movementSpeed*2, myRigidbody.velocity.y);
@@ -112,6 +135,11 @@ public class Player : MonoBehaviour {
 
     private void HandleInput()
     {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            jump = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             attack = true;
@@ -153,7 +181,7 @@ public class Player : MonoBehaviour {
     {
         if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
         {
-            if (!this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            if (!this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("Attack") && !myAnimator.GetBool("isDash"))
             {
                 facingRight = !facingRight;
                 Vector3 theScale = transform.localScale;
@@ -163,11 +191,45 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private bool IsGrounded()
+    {
+        if (myRigidbody.velocity.y <= 0)
+        {
+            foreach(Transform point in groundPoints)
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, groundRadius, Ground);
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].gameObject != gameObject)
+                    {
+                        myAnimator.ResetTrigger("jump");
+                        myAnimator.SetBool("land", false);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private void HandleLayer()
+    {
+        if (!isGrounded)
+        {
+            myAnimator.SetLayerWeight(1, 1);
+        }
+        else
+        {
+            myAnimator.SetLayerWeight(1, 0);
+        }
+    }
+
     private void ResetValues()
     {
         attack = false;
         running = false;
         dash = false;
+        jump = false;
     }
 
 }
