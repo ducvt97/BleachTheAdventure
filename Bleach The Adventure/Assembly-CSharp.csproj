@@ -53,10 +53,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AttackStand1Behavior.cs" />
+     <Compile Include="Assets\AttackStand2Behavior.cs" />
+     <Compile Include="Assets\BonnieDamagaBehavior.cs" />
+     <Compile Include="Assets\DamageBehavior.cs" />
+     <Compile Include="Assets\DeathBehavior.cs" />
+     <Compile Include="Assets\Hollow3DamagaBehavior.cs" />
+     <Compile Include="Assets\IchigoDamageBehavior.cs" />
+     <Compile Include="Assets\JumpBehavior.cs" />
+     <Compile Include="Assets\LandBehavior.cs" />
+     <Compile Include="Assets\Script\CameraFollow.cs" />
+     <Compile Include="Assets\Script\Character.cs" />
      <Compile Include="Assets\Script\Enemies\Minions\Hollows\Jibakurai.cs" />
      <Compile Include="Assets\Script\Enemies\Minions\Hollows\Shrieker\Shrieker.cs" />
      <Compile Include="Assets\Script\Enemies\Minions\Hollows\Shrieker\ShriekerSkill.cs" />
+     <Compile Include="Assets\Script\Enermy\Bonnie.cs" />
+     <Compile Include="Assets\Script\Enermy\BonnieSight.cs" />
+     <Compile Include="Assets\Script\Enermy\BonnieState\BonnieIdeState.cs" />
+     <Compile Include="Assets\Script\Enermy\BonnieState\BonnieIEnermyState.cs" />
+     <Compile Include="Assets\Script\Enermy\BonnieState\BonnieMeleeState.cs" />
+     <Compile Include="Assets\Script\Enermy\BonnieState\BonniePatrolState.cs" />
+     <Compile Include="Assets\Script\Enermy\BonnieState\BonnieRangedState.cs" />
+     <Compile Include="Assets\Script\Enermy\EnermyState\IdeState.cs" />
+     <Compile Include="Assets\Script\Enermy\EnermyState\IEnermyState.cs" />
+     <Compile Include="Assets\Script\Enermy\EnermyState\MeleeState.cs" />
+     <Compile Include="Assets\Script\Enermy\EnermyState\PatrolState.cs" />
+     <Compile Include="Assets\Script\Enermy\EnermyState\RangedState.cs" />
+     <Compile Include="Assets\Script\Enermy\GrandFisher.cs" />
+     <Compile Include="Assets\Script\Enermy\GrandFisherSight.cs" />
+     <Compile Include="Assets\Script\Enermy\Hollow3.cs" />
+     <Compile Include="Assets\Script\Enermy\Hollow3Sight.cs" />
+     <Compile Include="Assets\Script\Enermy\Hollow3State\Hollow3IdeState.cs" />
+     <Compile Include="Assets\Script\Enermy\Hollow3State\Hollow3IEnermyState.cs" />
+     <Compile Include="Assets\Script\Enermy\Hollow3State\Hollow3MeleeState.cs" />
+     <Compile Include="Assets\Script\Enermy\Hollow3State\Hollow3PatrolState.cs" />
+     <Compile Include="Assets\Script\Enermy\Hollow3State\Hollow3RangedState.cs" />
+     <Compile Include="Assets\Script\Ichigo Script\Air.cs" />
      <Compile Include="Assets\Script\Ichigo Script\IchigoScript.cs" />
+     <Compile Include="Assets\Script\IgnoreCollision.cs" />
+     <Compile Include="Assets\Script\SwordCollider.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>E:/Hoc/Insane/Game/BTN/BleachTheAdventure/Bleach The Adventure/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

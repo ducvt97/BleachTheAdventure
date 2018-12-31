@@ -2,24 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IchigoScript : MonoBehaviour
+public delegate void DeadEventHandler();
+
+public class IchigoScript : Character
 {
-    private Rigidbody2D myRigidbody;
+    private static IchigoScript instance;
 
-    private Animator myAnimator;
+    public event DeadEventHandler Dead;
 
-    private bool attack;
-
-    private bool attack2;
-
+    public static IchigoScript Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<IchigoScript>();
+            }
+            return instance;
+        }
+    }
     private float tapSpeed = 0.5f;
 
     private float lastTapTime = 0;
-
-    [SerializeField]
-    private float movementSpeed;
-
-    private bool facingRight;
 
     [SerializeField]
     private Transform[] groundPoints;
@@ -30,125 +34,149 @@ public class IchigoScript : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsGround;
 
-    private bool isGrounded;
-
-    private bool jump;
-
     [SerializeField]
     private bool airControl;
 
     [SerializeField]
     private float jumpForce;
-    // Start is called before the first frame update
-    void Start()
+
+    private bool immortal = false;
+
+    private SpriteRenderer spriteRender;
+
+    [SerializeField]
+    private float immortalTime;
+
+    public Rigidbody2D MyRigidbody { get; set; }
+
+    public bool Attack2 { get; set; }
+
+    public bool Jump { get; set; }
+
+    public bool OnGround { get; set; }
+
+    public override bool IsDead
     {
-        facingRight = true;
-        myRigidbody = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
+        get
+        {
+            if (health <= 0)
+            {
+                OnDead();
+            }
+            
+            return health <= 0;
+        }
+    }
+
+    private Vector2 startPos;
+
+    // Start is called before the first frame update
+    public override void Start()
+    {
+        base.Start();
+        startPos = transform.position;
+        spriteRender = GetComponent<SpriteRenderer>();
+        MyRigidbody = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleInput();
+        if(!TakingDamage && !IsDead)
+        {
+            if (transform.position.y <= -14f)
+            {
+                Death();
+            }
+            HandleInput();
+        }
+        
     }
 
     void FixedUpdate()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-
-        isGrounded = IsGrounded();
-
-        HandleMovement(horizontal);
-
-        Flip(horizontal);
-
-        HandleAttack();
-
-        HandleLayers();
-
-        ResetValue();
-    }
-    
-    private void HandleMovement(float horizontal)
-    {
-        if (myRigidbody.velocity.y < 0)
+        if (!TakingDamage && !IsDead)
         {
-            myAnimator.SetBool("land", true);
-        }
-        if (!this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("attack") && (!isGrounded || airControl))
-        {
-            myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);
-        }
+            float horizontal = Input.GetAxis("Horizontal");
 
-        if(isGrounded && jump)
-        {
-            isGrounded = false;
-            myRigidbody.AddForce(new Vector2(0, jumpForce));
-            myAnimator.SetTrigger("jump");
+            OnGround = IsGrounded();
+
+            HandleMovement(horizontal);
+
+            Flip(horizontal);
+
+            HandleLayers();
         }
         
-        myAnimator.SetFloat("speed", Mathf.Abs(horizontal));
+
+    }
+    
+    public void OnDead()
+    {
+        if (Dead != null)
+        {
+            Dead();
+        }
+    }
+
+    private void HandleMovement(float horizontal)
+    {
+        if(MyRigidbody.velocity.y < 0)
+        {
+            MyAnimator.SetBool("land", true);
+        }
+        if(!Attack &&!Attack2&&(OnGround || airControl))
+        {
+            MyRigidbody.velocity = new Vector2(horizontal * movementSpeed, MyRigidbody.velocity.y);
+        }
+        if(Jump && MyRigidbody.velocity.y == 0)
+        {
+            MyRigidbody.AddForce(new Vector2(0, jumpForce));
+        }
+
+        MyAnimator.SetFloat("speed", Mathf.Abs(horizontal));
     }
     
     // call attack animation
-    private void HandleAttack()
-    {
-        if (attack && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("attack")) 
-        {
-            myAnimator.SetTrigger("attack_stand1");
-            myRigidbody.velocity = Vector2.zero;
-        }
-        if (attack2 && !this.myAnimator.GetCurrentAnimatorStateInfo(0).IsTag("attack")) 
-        {
-            myAnimator.SetTrigger("attack_stand2");
-            myRigidbody.velocity = Vector2.zero;
-        }
-    }
+
 
     //input keycode
     private void HandleInput()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jump = true;
+            MyAnimator.SetTrigger("jump");
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            attack = true;
+            MyAnimator.SetTrigger("attack_stand1");
             if ((Time.time - lastTapTime) < tapSpeed)
             {
-                attack2 = true;
+                MyAnimator.SetTrigger("attack_stand2");
             }
             lastTapTime = Time.time;
         }
-        
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            MyAnimator.SetTrigger("attack_air");
+        }
     }
 
     //reset value
-    private void ResetValue()
-    {
-        attack = false;
-        attack2 = false;
-        jump = false;
-    }
+
     //xoay nguoi player
     private void Flip(float horizontal)
     {
         if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
         {
-            facingRight = !facingRight;
-
-            Vector3 theScale = transform.localScale;
-
-            theScale.x *= -1;
-            transform.localScale = theScale;
+            ChangeDirection();
         }
     }
     // stand in ground?
     private bool IsGrounded()
     {
-        if (myRigidbody.velocity.y <= 0)
+        if (MyRigidbody.velocity.y <= 0)
         {
             foreach (Transform point in groundPoints)
             {
@@ -158,8 +186,6 @@ public class IchigoScript : MonoBehaviour
                 {
                     if (colliders[i].gameObject != gameObject)
                     {
-                        myAnimator.ResetTrigger("jump");
-                        myAnimator.SetBool("land", false);
                         return true;
                     } 
                 }
@@ -171,13 +197,68 @@ public class IchigoScript : MonoBehaviour
 
     private void HandleLayers()
     {
-        if (!isGrounded)
+        if (!OnGround)
         {
-            myAnimator.SetLayerWeight(1, 1);
+            MyAnimator.SetLayerWeight(1, 1);
         }
         else
         {
-            myAnimator.SetLayerWeight(1, 0);
+            MyAnimator.SetLayerWeight(1, 0);
         }
+    }
+ 
+    public override void ThrowAir(int value)
+    {
+        if (!OnGround && value == 1 || OnGround && value == 0)
+        {
+            base.ThrowAir(value);
+        }
+        
+    }
+
+    private IEnumerator IndicateImmortal()
+    {
+        while (immortal)
+        {
+            spriteRender.enabled = false;
+
+            yield return new WaitForSeconds(.1f);
+
+            spriteRender.enabled = true;
+
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    public override IEnumerator TakeDamage()
+    {
+        if (!immortal)
+        {
+            health -= 10;
+
+            if (!IsDead)
+            {
+                MyAnimator.SetTrigger("damage");
+                immortal = true;
+
+                StartCoroutine(IndicateImmortal());
+                yield return new WaitForSeconds(immortalTime);
+
+                immortal = false;
+            }
+            else
+            {
+                MyAnimator.SetLayerWeight(1, 0);
+                MyAnimator.SetTrigger("die");
+            }
+        }
+    }
+
+    public override void Death()
+    {
+        MyRigidbody.velocity = Vector2.zero;
+        MyAnimator.SetTrigger("stand");
+        health = 30;
+        transform.position = startPos;
     }
 }
