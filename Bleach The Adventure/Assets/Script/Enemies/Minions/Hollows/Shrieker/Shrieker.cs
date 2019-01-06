@@ -3,80 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shrieker : MonoBehaviour
+public class Shrieker : Minion
 {
     // Start is called before the first frame update
-    public IchigoScript target;
-    public Animator anim;
     public GameObject skill;
     public Collider2D attackLeft, attackRight;
     //private SoundManager sound;
 
-    public int curHP;
-    public int maxHP;
-
-    private float speed = 0.02f;
-    private float awakeRange = 5f;
-    private float attackDelay, skillDelay;
-    private bool isAwake;
-    public bool faceRight;
-    private Vector2 permanentPosition;
-
-    private int state; // 0: stand; 1: fly; 2: attack; 3: skill; 4: take damage; 5: fall down; 6: dead
+    public bool onGround;
     
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<IchigoScript>();
-        anim = GetComponent<Animator>();
-        //sound = GameObject.FindObjectOfType<SoundManager>();
-        state = 0;
-        maxHP = curHP = 5;
-        faceRight = false;
-        isAwake = false;
-        curHP = maxHP;
-        attackDelay = 1f;
-        skillDelay = 1f;
-        permanentPosition = transform.position;
+        base.Start();
+        attackLeft.enabled = attackRight.enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         isAwake = CheckRange();
         if (curHP > 0)
         {
             if (isAwake)
             {
-                if ((target.transform.position.x < transform.position.x && !faceRight) ||
-                    (target.transform.position.x > transform.position.x && faceRight))
+                if (((target.transform.position.x < transform.position.x && !faceRight) ||
+                    (target.transform.position.x > transform.position.x && faceRight)) &&
+                    Math.Abs(target.transform.position.y - transform.position.y) < 1)
                     Flip();
-                if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
+                if (Math.Abs(target.transform.position.x - transform.position.x) < 1f && 
+                    Math.Abs(target.transform.position.y - transform.position.y) < 0.8f)
                     Attack();
-                else if (Math.Abs(target.transform.position.x - transform.position.x) < 5f)
+                else if (Math.Abs(target.transform.position.x - transform.position.x) < 3f)
                     PrepareSkill();
                 else
                     Walk();
-
             }
             else
             {
-
+                base.Update();
             }
         }
+        else
+        {
+            state = onGround ? 3 : 6;
+            SetAction();
+        }
     }
-    void Flip()
-    {
-        faceRight = !faceRight;
-        speed *= -1;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }
-    void SetAction()
-    {
-        anim.SetInteger("State", state);
-    }
+
     bool CheckRange()
     {
         var distance = Vector2.Distance(target.transform.position, this.transform.position);
@@ -93,7 +67,7 @@ public class Shrieker : MonoBehaviour
             attackDelay -= Time.deltaTime;
         else
         {
-            state = 2;
+            state = 4;
             attackDelay = 1.5f;
             if (faceRight)
                 attackRight.enabled = true;
@@ -108,7 +82,7 @@ public class Shrieker : MonoBehaviour
             skillDelay -= Time.deltaTime;
         else
         {
-            state = 3;
+            state = 5;
             skillDelay = 3f;
             SetAction();
         }
@@ -118,56 +92,31 @@ public class Shrieker : MonoBehaviour
         GameObject skillClone;
         if (faceRight)
         {
-            skillClone = Instantiate(skill, new Vector3(transform.position.x - 1f, transform.position.y), Quaternion.identity, this.transform);
+            skillClone = Instantiate(skill, new Vector3(transform.position.x - 1f, transform.position.y), Quaternion.Euler(new Vector3(0, 0, 0)));
+            Vector2 direction = target.transform.position;
+            direction.x = -direction.x;
+            direction.y = -direction.y;
+            direction.Normalize();
+            skillClone.GetComponent<ShriekerSkill>().Initialize(direction);
         }
         else
         {
-            skillClone = Instantiate(skill, new Vector3(transform.position.x + 1f, transform.position.y), Quaternion.identity, this.transform);
+            skillClone = Instantiate(skill, new Vector3(transform.position.x + 1f, transform.position.y), Quaternion.Euler(new Vector3(0, 0, 180)));
+            Vector2 direction = target.transform.position;
+            //direction.x = -direction.x;
+            direction.y = -direction.y;
+            direction.Normalize();
+            skillClone.GetComponent<ShriekerSkill>().Initialize(direction);
         }
     }
-    public void Walk()
+    public override void OnTriggerEnter2D(Collider2D other)
     {
-        state = 1;
-        SetAction();
-        var newPos = new Vector2(transform.position.x + speed, transform.position.y);
-        transform.position = newPos;
-    }
-    public void Stand()
-    {
-        state = 0;
-        SetAction();
-    }
-
-    public void LoseHP(int hpLost)
-    {
-        curHP -= hpLost;
-        state = 4;
-        SetAction();
-        state = 0;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Weapon"))
+        base.OnTriggerEnter2D(other);
+        if (other.CompareTag("Ground"))
         {
-            //var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            //LoseHP(player.dmg);
-        }else if (other.CompareTag("Ground"))
-        {
-            if (curHP <= 0)
-            {
-                state = 6;
-                SetAction();
-            }
+            onGround = true;
         }
-        
     }
-
-    //public bool CheckDie()
-    //{
-    //    return curHP <= 0 ? true : false;
-    //}
-
     public void AlertObservers(string message)
     {
         switch (message)

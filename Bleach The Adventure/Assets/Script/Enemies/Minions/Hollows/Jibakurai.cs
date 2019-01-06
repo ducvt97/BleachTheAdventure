@@ -3,77 +3,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jibakurai : MonoBehaviour
+public class Jibakurai : Minion
 {
-    //public Player target;
-    public IchigoScript target;
-    public Animator anim;
-    public GameObject bullet;
     public Collider2D attackLeft, attackRight;
     //private SoundManager sound;
 
-    public int curHP;
-    public int maxHP;
-
-    private float speed = 0.02f;
-    private float awakeRange = 3f;
-    private float attackDelay;
-    private bool isAwake;
-    private bool faceRight;
-
-    private int state; // 0: stand; 1: walk; 2: attack; 3: take damage; 4: dead
-
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<IchigoScript>();
-        anim = GetComponent<Animator>();
+        base.Start();
         //sound = GameObject.FindObjectOfType<SoundManager>();
-        state = 0;
-        maxHP = curHP = 5;
-        faceRight = false;
-        isAwake = false;
-        curHP = maxHP;
-        attackDelay = 1f;
+        attackLeft.enabled = attackRight.enabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         isAwake = CheckRange();
         if (curHP <= 0)
-            state = 4;
+        {
+            state = 3;
+            SetAction();
+        }
         else
         {
             if (isAwake)
             {
-                if ((target.transform.position.x < transform.position.x && !faceRight) ||
-                    (target.transform.position.x > transform.position.x && faceRight))
+                if (((target.transform.position.x < transform.position.x && !faceRight) ||
+                    (target.transform.position.x > transform.position.x && faceRight)) &&
+                    Math.Abs(target.transform.position.y - transform.position.y) < 1)
                     Flip();
                 if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
                     Attack();
                 else
                     Walk();
-                
             }
             else
             {
-
+                base.Update();
             }
         }
     }
-    void Flip()
-    {
-        faceRight = !faceRight;
-        speed *= -1;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }
-    void SetAction()
-    {
-        anim.SetInteger("State", state);
-    }
+
     bool CheckRange()
     {
         var distance = Vector2.Distance(target.transform.position, this.transform.position);
@@ -90,7 +61,7 @@ public class Jibakurai : MonoBehaviour
             attackDelay -= Time.deltaTime;
         else
         {
-            state = 2;
+            state = 4;
             attackDelay = 1.5f;
             if (faceRight)
                 attackRight.enabled = true;
@@ -100,41 +71,6 @@ public class Jibakurai : MonoBehaviour
         }
 
     }
-    public void Walk()
-    {
-        state = 1;
-        SetAction();
-        var newPos = new Vector2(transform.position.x + speed, transform.position.y);
-        transform.position = newPos;
-    }
-    public void Stand()
-    {
-        state = 0;
-        SetAction();
-    }
-
-    public void LoseHP(int hpLost)
-    {
-        curHP -= hpLost;
-        state = 3;
-        SetAction();
-        state = 0;
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            //var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            //LoseHP(player.dmg);
-        }
-
-    }
-
-    //public bool CheckDie()
-    //{
-    //    return curHP <= 0 ? true : false;
-    //}
 
     public void AlertObservers(string message)
     {

@@ -261,4 +261,5 @@ public class IchigoScript : Character
         health = 30;
         transform.position = startPos;
     }
+
 }

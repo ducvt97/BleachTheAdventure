@@ -2,46 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShriekerSkill : MonoBehaviour
+public class ShriekerSkill : Air
 {
     private Animator anim;
-    private float speed = 1.5f;
-    public Vector3 target, direction;
+    //private float speed = 1.5f;
+    //public Vector3 target, direction;
     public int dmg = 1;
-
+    private float timeElapsed = 2f;
     private bool collideWithPlayer;
 
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
+        base.Start();
         anim = GetComponent<Animator>();
-        var shrieker = gameObject.GetComponentInParent<Shrieker>();
-        target = shrieker.target.transform.position;
         collideWithPlayer = false;
-        direction = target - transform.position;
-        if (shrieker.faceRight)
-            direction.x = -direction.x;
-        direction.Normalize();
-    }
-
-    void Awake()
-    {
-
+        speed = 3f;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void FixedUpdate()
     {
-        if (Vector3.Equals(transform.position, target) || collideWithPlayer)
+        if (timeElapsed <= 0 || collideWithPlayer)
         {
             anim.SetBool("Destroy", true);
         }
         else
         {
-
-            float factor = Time.deltaTime * speed;
-
-            this.transform.Translate(direction * factor, Space.Self);
+            timeElapsed -= Time.deltaTime;
+            base.FixedUpdate();
         }
     }
 

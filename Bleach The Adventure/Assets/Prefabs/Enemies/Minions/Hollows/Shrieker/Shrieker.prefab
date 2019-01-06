@@ -41,7 +41,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.39004517, y: -0.028335571}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.39379883, y: -0.030586243}
@@ -237,6 +237,7 @@ MonoBehaviour:
   curHP: 0
   maxHP: 0
   faceRight: 0
+  onGround: 0
 --- !u!61 &5527573343741371481
 BoxCollider2D:
   m_ObjectHideFlags: 0
