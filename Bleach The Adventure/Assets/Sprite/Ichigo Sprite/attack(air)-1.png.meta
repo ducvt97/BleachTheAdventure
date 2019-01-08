@@ -94,12 +94,12 @@ TextureImporter:
       name: attack(air)-1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 9
         y: 0
-        width: 86
-        height: 66
+        width: 126
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -114,12 +114,12 @@ TextureImporter:
       name: attack(air)-1_1
       rect:
         serializedVersion: 2
-        x: 104
+        x: 135
         y: 2
-        width: 163
-        height: 76
+        width: 162
+        height: 166
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: attack(air)-1_2
       rect:
         serializedVersion: 2
-        x: 280
+        x: 297
         y: 3
-        width: 141
-        height: 75
+        width: 154
+        height: 165
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: attack(air)-1_3
       rect:
         serializedVersion: 2
-        x: 438
+        x: 453
         y: 7
-        width: 146
-        height: 119
+        width: 163
+        height: 161
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: attack(air)-1_4
       rect:
         serializedVersion: 2
-        x: 600
+        x: 617
         y: 7
-        width: 102
-        height: 119
+        width: 118
+        height: 161
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: attack(air)-1_5
       rect:
         serializedVersion: 2
-        x: 717
+        x: 737
         y: 7
-        width: 102
-        height: 115
+        width: 114
+        height: 161
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,12 +214,12 @@ TextureImporter:
       name: attack(air)-1_6
       rect:
         serializedVersion: 2
-        x: 833
+        x: 851
         y: 7
-        width: 102
-        height: 100
+        width: 114
+        height: 161
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

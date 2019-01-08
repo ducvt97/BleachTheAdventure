@@ -89,12 +89,12 @@ TextureImporter:
       name: take-damage(stand)_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 65
-        height: 111
+        width: 78
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -109,12 +109,12 @@ TextureImporter:
       name: take-damage(stand)_1
       rect:
         serializedVersion: 2
-        x: 74
+        x: 79
         y: 0
-        width: 76
-        height: 98
+        width: 88
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

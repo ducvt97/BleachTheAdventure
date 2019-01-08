@@ -1,7 +1,16 @@
 fileFormatVersion: 2
 guid: 8bbecd80a6cf40a48999ed1a8e80f7e5
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: attack(crouch)-2_0
+    21300002: attack(crouch)-2_1
+    21300004: attack(crouch)-2_2
+    21300006: attack(crouch)-2_3
+    21300008: attack(crouch)-2_4
+    21300010: attack(crouch)-2_5
+    21300012: attack(crouch)-2_6
+    21300014: attack(crouch)-2_7
+    21300016: attack(crouch)-2_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -82,7 +91,187 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: attack(crouch)-2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 108
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a600448ac95c9941a3d86739876d0f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_1
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 2
+        width: 89
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a299d6c3eb3896c46b43193d7648279d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 2
+        width: 79
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc1f4a3180ee33c4dbe75ff6644b5315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_3
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 0
+        width: 140
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c6543be7bed5c34b8e6405642bf7735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 133
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59544f08dead9334faadfd46d8996a03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_5
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 0
+        width: 127
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104cb86a240b0704fbc94d40c9ff84a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_6
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 86
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696df72015fab604085d85d2a73ec96b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_7
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 0
+        width: 74
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7709d690c8e337641bbc15e58f02d969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack(crouch)-2_8
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 0
+        width: 141
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3610bb05f20bf0459e9a7b720d169f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -96,12 +96,12 @@ TextureImporter:
       name: attack(stand)-1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 15
         y: 0
-        width: 84
-        height: 83
+        width: 86
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -116,12 +116,12 @@ TextureImporter:
       name: attack(stand)-1_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 111
         y: 0
-        width: 100
-        height: 83
+        width: 102
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: attack(stand)-1_2
       rect:
         serializedVersion: 2
-        x: 208
+        x: 214
         y: 0
-        width: 143
-        height: 79
+        width: 152
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: attack(stand)-1_3
       rect:
         serializedVersion: 2
-        x: 359
+        x: 367
         y: 0
-        width: 144
-        height: 95
+        width: 153
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: attack(stand)-1_4
       rect:
         serializedVersion: 2
-        x: 519
+        x: 521
         y: 0
-        width: 97
-        height: 96
+        width: 110
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: attack(stand)-1_5
       rect:
         serializedVersion: 2
-        x: 626
+        x: 631
         y: 0
-        width: 83
-        height: 96
+        width: 95
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: attack(stand)-1_6
       rect:
         serializedVersion: 2
-        x: 726
+        x: 730
         y: 0
-        width: 83
-        height: 95
+        width: 95
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: attack(stand)-1_7
       rect:
         serializedVersion: 2
-        x: 822
+        x: 827
         y: 0
-        width: 83
-        height: 93
+        width: 95
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,12 +256,12 @@ TextureImporter:
       name: attack(stand)-1_8
       rect:
         serializedVersion: 2
-        x: 917
+        x: 922
         y: 0
-        width: 77
-        height: 92
+        width: 88
+        height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

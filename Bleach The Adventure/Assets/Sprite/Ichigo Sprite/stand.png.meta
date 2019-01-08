@@ -96,12 +96,12 @@ TextureImporter:
       name: stand_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 8
         y: 0
-        width: 82
-        height: 109
+        width: 96
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -116,12 +116,12 @@ TextureImporter:
       name: stand_1
       rect:
         serializedVersion: 2
-        x: 99
+        x: 108
         y: 0
-        width: 82
-        height: 109
+        width: 95
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: stand_2
       rect:
         serializedVersion: 2
-        x: 200
+        x: 209
         y: 0
-        width: 82
-        height: 108
+        width: 93
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: stand_3
       rect:
         serializedVersion: 2
-        x: 293
+        x: 302
         y: 0
-        width: 82
-        height: 107
+        width: 94
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: stand_4
       rect:
         serializedVersion: 2
-        x: 395
+        x: 404
         y: 0
-        width: 83
-        height: 107
+        width: 96
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: stand_5
       rect:
         serializedVersion: 2
-        x: 500
+        x: 504
         y: 0
-        width: 83
-        height: 107
+        width: 99
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: stand_6
       rect:
         serializedVersion: 2
-        x: 596
+        x: 603
         y: 0
-        width: 82
-        height: 107
+        width: 95
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: stand_7
       rect:
         serializedVersion: 2
-        x: 690
+        x: 699
         y: 0
-        width: 83
-        height: 108
+        width: 95
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,12 +256,12 @@ TextureImporter:
       name: stand_8
       rect:
         serializedVersion: 2
-        x: 791
+        x: 796
         y: 0
-        width: 82
-        height: 109
+        width: 97
+        height: 168
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
