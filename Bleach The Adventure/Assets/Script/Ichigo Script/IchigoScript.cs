@@ -54,7 +54,10 @@ public class IchigoScript : Character
     public bool Jump { get; set; }
 
     public bool OnGround { get; set; }
-
+    [SerializeField]
+    private Stat statHealth;
+    [SerializeField]
+    private Stat statEnergy;
     public override bool IsDead
     {
         get
@@ -71,6 +74,11 @@ public class IchigoScript : Character
     private Vector2 startPos;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        statHealth.Init();
+        statEnergy.Init();
+    }
     public override void Start()
     {
         base.Start();
@@ -234,7 +242,8 @@ public class IchigoScript : Character
     {
         if (!immortal)
         {
-            health -= 10;
+            statHealth.CurrentVal -= 10;
+            health = (int)statHealth.CurrentVal;
 
             if (!IsDead)
             {
@@ -258,7 +267,8 @@ public class IchigoScript : Character
     {
         MyRigidbody.velocity = Vector2.zero;
         MyAnimator.SetTrigger("stand");
-        health = 30;
+        health = (int)statHealth.MaxVal;
+        statHealth.CurrentVal = statHealth.MaxVal;
         transform.position = startPos;
     }
 
