@@ -58,6 +58,19 @@ public class IchigoScript : Character
     private Stat statHealth;
     [SerializeField]
     private Stat statEnergy;
+
+    public AudioSource JumpSound;
+
+    public AudioSource Attack1Sound;
+
+    public AudioSource Attack2Sound;
+
+    public AudioSource AttackAirSound;
+
+    public AudioSource TakeDamageSound;
+
+    public AudioSource DeathSound;
+
     public override bool IsDead
     {
         get
@@ -155,19 +168,23 @@ public class IchigoScript : Character
         if (Input.GetKeyDown(KeyCode.Space))
         {
             MyAnimator.SetTrigger("jump");
+            JumpSound.Play();
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
             MyAnimator.SetTrigger("attack_stand1");
+            Attack1Sound.Play();
             if ((Time.time - lastTapTime) < tapSpeed)
             {
                 MyAnimator.SetTrigger("attack_stand2");
+                Attack2Sound.Play();
             }
             lastTapTime = Time.time;
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
             MyAnimator.SetTrigger("attack_air");
+            AttackAirSound.Play();
         }
     }
 
@@ -248,6 +265,7 @@ public class IchigoScript : Character
             if (!IsDead)
             {
                 MyAnimator.SetTrigger("damage");
+                TakeDamageSound.Play();
                 immortal = true;
 
                 StartCoroutine(IndicateImmortal());
@@ -259,6 +277,7 @@ public class IchigoScript : Character
             {
                 MyAnimator.SetLayerWeight(1, 0);
                 MyAnimator.SetTrigger("die");
+                DeathSound.Play();
             }
         }
     }
