@@ -106,7 +106,7 @@
      <Compile Include="Assets\Script\Ichigo Script\Air.cs" />
      <Compile Include="Assets\Script\Ichigo Script\IchigoScript.cs" />
      <Compile Include="Assets\Script\IgnoreCollision.cs" />
-     <Compile Include="Assets\Script\SceneSelection.cs" />
+     <Compile Include="Assets\Script\LevelLoader.cs" />
      <Compile Include="Assets\Script\Stat.cs" />
      <Compile Include="Assets\Script\SwordCollider.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
