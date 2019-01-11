@@ -12,11 +12,12 @@ public class Enemy : MonoBehaviour
     public int curHP;
     public int maxHP;
 
+    protected int damage;
     protected float speed = 0.02f;
     protected float awakeRange = 5f;
     protected float attackDelay, skillDelay, walkDelay;
     protected bool isAwake;
-    public bool faceRight;
+    public bool faceRight, isInvulnerable;
 
     protected int state; // 0: stand; 1: walk; 2: take damage; 3: dead
 
@@ -28,11 +29,10 @@ public class Enemy : MonoBehaviour
         //sound = GameObject.FindObjectOfType<SoundManager>();
         state = 0;
         maxHP = curHP = 5;
-        faceRight = false;
-        isAwake = false;
-        curHP = maxHP;
+        faceRight = isAwake = isInvulnerable = false;
         attackDelay = skillDelay = 0f;
         walkDelay = 1f;
+        damage = 5;
     }
 
     // Update is called once per frame
@@ -97,6 +97,7 @@ public class Enemy : MonoBehaviour
     }
     public void Dead()
     {
+        isInvulnerable = true;
         state = 3;
         SetAction();
     }
@@ -104,8 +105,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if(!isInvulnerable)
             //var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            LoseHP(3);
+                LoseHP(3);
         }
         if (other.CompareTag("Edge"))
         {

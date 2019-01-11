@@ -137,6 +137,7 @@ public class Urahara : Boss
     {
         attackAir2.enabled = true;
         base.Jump();
+        isAction = true;
         state = 9;
         SetAction();
     }
