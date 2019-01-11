@@ -28,11 +28,6 @@ public class RangikuSkill : Air
             Destroy(gameObject);
         }
     }
-    // Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -42,6 +37,7 @@ public class RangikuSkill : Air
             {
                 //var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
                 //player.LoseHP(dmg);
+                Destroy(gameObject);
             }
         }
     }

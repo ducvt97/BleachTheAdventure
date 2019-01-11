@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hinamori : Minion
+public class Hinamori : Enemy
 {
     public GameObject skill;
     public Collider2D attackLeft, attackRight;

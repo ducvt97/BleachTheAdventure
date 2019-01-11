@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TsukaimaSkill : Air
 {
-    private Animator anim;
-    private float stickElapsed, destroyElapsed;
+    protected Animator anim;
+    protected float stickElapsed, destroyElapsed;
     public int dmg = 1;
 
     public bool collideWithPlayer, stickOnPlayer;

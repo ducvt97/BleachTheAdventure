@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jibakurai : Minion
+public class Jibakurai : Enemy
 {
     public Collider2D attackLeft, attackRight;
     //private SoundManager sound;

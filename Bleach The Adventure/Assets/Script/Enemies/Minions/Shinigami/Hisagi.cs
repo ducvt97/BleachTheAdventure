@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hisagi : Minion
+public class Hisagi : Enemy
 {
     public Collider2D attack1Left, attack1Right, attack2Left, attack2Right;
     //private SoundManager sound;
@@ -117,18 +117,15 @@ public class Hisagi : Minion
         {
             case "Attack1End":
                 attack1Left.enabled = attack1Right.enabled = false;
-                state = 0;
-                SetAction();
+                Stand();
                 break;
             case "Attack2End":
                 attack2Left.enabled = attack2Right.enabled = false;
-                state = 0;
-                SetAction();
+                Stand();
                 break;
             case "TeleportEnd":
                 isTeleport = false;
-                state = 0;
-                SetAction();
+                Stand();
                 break;
             case "Dead":
                 Destroy(gameObject);

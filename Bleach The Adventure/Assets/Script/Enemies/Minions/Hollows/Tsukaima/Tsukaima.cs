@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tsukaima : Minion
+public class Tsukaima : Enemy
 {
     public GameObject skill;
     public Collider2D attackLeft, attackRight;

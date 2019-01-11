@@ -7,7 +7,7 @@ public class YachiruSkill : Air
     // Start is called before the first frame update
     public int dmg = 1;
 
-    private float timeElapsed = 2f;
+    protected float timeElapsed = 2f;
 
     public override void Start()
     {

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300020, guid: 3b13003d9df12f74ba39aeddfe126b79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354bcbd290e7df949a7d5a5021d0ddb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   dmg: 1
 --- !u!50 &7683600337192380482
 Rigidbody2D:

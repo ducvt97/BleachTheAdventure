@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rangiku : Minion
+public class Rangiku : Enemy
 {
     public GameObject skill;
     //private SoundManager sound;

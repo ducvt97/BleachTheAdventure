@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nemu : Minion
+public class Nemu : Enemy
 {
     public Collider2D attack1Left, attack1Right, attack2Left, attack2Right;
     //private SoundManager sound;
