@@ -1255,6 +1255,7 @@ MonoBehaviour:
   loadScreen: {fileID: 1938340116}
   slider: {fileID: 569578134}
   progressText: {fileID: 1984481452}
+  curLevel: {fileID: 1946983755}
 --- !u!4 &640887005
 Transform:
   m_ObjectHideFlags: 0

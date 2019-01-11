@@ -8,11 +8,19 @@ public class LevelLoader : MonoBehaviour
 	public GameObject loadScreen;
 	public Slider slider;
 	public Text progressText;
+	public Text curLevel;
 	public void LoadSavedLevel(int savedLevel)
 	{
 		StartCoroutine(LoadAsynchronously(PlayerPrefs.GetInt("LastLevel", 0)));
 	}
-
+	void Start()
+	{
+		if (SceneManager.GetActiveScene().buildIndex != 0)
+		{
+			curLevel.text = "Level " + (SceneManager.GetActiveScene().buildIndex - 1).ToString();
+		}
+		
+	}
 	public void LoadLevel(int sceneIndex)
 	{
 		StartCoroutine(LoadAsynchronously(sceneIndex));
