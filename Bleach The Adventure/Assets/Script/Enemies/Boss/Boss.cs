@@ -6,7 +6,7 @@ public class Boss : Enemy
 {
     public bool isBlocking, isTeleport, isAction;
     public int form;
-    protected float teleportDelay;
+    protected float teleportDelay, attackSpeed, skillSpeed;
     protected float jumpPow, teleRange;
 
     public override void Start()
@@ -18,6 +18,8 @@ public class Boss : Enemy
         teleportDelay = 1f;
         jumpPow = 180f;
         teleRange = 70f;
+        attackSpeed = 1f;
+        skillSpeed = 1.5f;
     }
     public override void LoseHP(int hpLost)
     {
@@ -34,7 +36,7 @@ public class Boss : Enemy
         isAction = false;
         base.Walk();
     }
-    public void Move()
+    public virtual void Move()
     {
         teleportDelay -= Time.deltaTime;
         if (teleportDelay < 0)
@@ -45,7 +47,7 @@ public class Boss : Enemy
         else
             Walk();
     }
-    public void Teleport()
+    public virtual void Teleport()
     {
         isTeleport = true;
         isAction = true;

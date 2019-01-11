@@ -74,11 +74,15 @@
      <Compile Include="Assets\Script\Enemies\Boss\Byakuya\ByakuyaSkill1.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Byakuya\ByakuyaSkill2.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Byakuya\ByakuyaSkill3.cs" />
+     <Compile Include="Assets\Script\Enemies\Boss\Grimmjow\Grimmjow.cs" />
+     <Compile Include="Assets\Script\Enemies\Boss\Grimmjow\GrimmjowForm1_Skill.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Ikkaku\Ikkaku.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Ikkaku\IkkakuSkill.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Kenpachi\Kenpachi.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Kenpachi\KenpachiSkill1.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Kenpachi\KenpachiSkill2.cs" />
+     <Compile Include="Assets\Script\Enemies\Boss\Menos Grande\MenosGrande.cs" />
+     <Compile Include="Assets\Script\Enemies\Boss\Menos Grande\MenosGrandeSkill.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Renji\Renji.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Renji\RenjiSkill2.cs" />
      <Compile Include="Assets\Script\Enemies\Boss\Urahara\Urahara.cs" />
