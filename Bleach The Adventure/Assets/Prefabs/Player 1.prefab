@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1362623238}
   m_Layer: 0
   m_Name: SwordCollider
-  m_TagString: Sword1
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 1725154448}
   m_Layer: 0
   m_Name: SwordCollider2
-  m_TagString: Sword2
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 2031073668}
   - component: {fileID: 2031073667}
   - component: {fileID: 2031073666}
+  - component: {fileID: 5455866689697737186}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -460,6 +461,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.6000596, y: 0.85444474}
+  m_EdgeRadius: 0
+--- !u!61 &5455866689697737186
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031073665}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06868124, y: -0.4120872}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 1.68}
+    newSize: {x: 0.82, y: 1.09}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2607007, y: 0.8558254}
   m_EdgeRadius: 0
 --- !u!1 &2061691672
 GameObject:

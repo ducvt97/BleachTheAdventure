@@ -46,11 +46,17 @@ public class Shrieker : Enemy
         }
         else
         {
-            state = onGround ? 3 : 6;
-            SetAction();
+            FallDown();
         }
     }
-
+    void FallDown()
+    {
+        isInvulnerable = true;
+        state = 6;
+        SetAction();
+        var rb2d = GetComponent<Rigidbody2D>();
+        rb2d.gravityScale = 0.5f;
+    }
     bool CheckRange()
     {
         var distance = Vector2.Distance(target.transform.position, this.transform.position);
@@ -90,33 +96,21 @@ public class Shrieker : Enemy
     public void Skill()
     {
         GameObject skillClone;
+        Vector2 direction = target.transform.position - transform.position;
+        direction.Normalize();
         if (faceRight)
         {
             skillClone = Instantiate(skill, new Vector3(transform.position.x - 1f, transform.position.y), Quaternion.Euler(new Vector3(0, 0, 0)));
-            Vector2 direction = target.transform.position;
-            direction.x = -direction.x;
-            direction.y = -direction.y;
-            direction.Normalize();
             skillClone.GetComponent<ShriekerSkill>().Initialize(direction);
         }
         else
         {
             skillClone = Instantiate(skill, new Vector3(transform.position.x + 1f, transform.position.y), Quaternion.Euler(new Vector3(0, 0, 180)));
-            Vector2 direction = target.transform.position;
-            //direction.x = -direction.x;
-            direction.y = -direction.y;
             direction.Normalize();
             skillClone.GetComponent<ShriekerSkill>().Initialize(direction);
         }
     }
-    public override void OnTriggerEnter2D(Collider2D other)
-    {
-        base.OnTriggerEnter2D(other);
-        if (other.CompareTag("Ground"))
-        {
-            onGround = true;
-        }
-    }
+
     public void AlertObservers(string message)
     {
         switch (message)

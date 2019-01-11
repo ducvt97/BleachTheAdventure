@@ -35,7 +35,7 @@ public class Hollow3IdeState : Hollow3IEnermyState
 
     public void OnTriggerEnter(Collider2D other)
     {
-        if (other.tag == "Air" || other.tag == "Sword1" || other.tag == "Sword2")
+        if (other.tag == "Air" || other.tag == "PlayerAttack")
         {
             enermy.Target = IchigoScript.Instance.gameObject;
         }

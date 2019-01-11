@@ -11,6 +11,8 @@ public class ByakuyaSkill3 : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
+                var player = FindObjectOfType<IchigoScript>();
+                player.TakeDamage();
                 Destroy(gameObject);
             }
         }

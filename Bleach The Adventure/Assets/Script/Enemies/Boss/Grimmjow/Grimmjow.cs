@@ -265,6 +265,7 @@ public class Grimmjow : Boss
         teleRange += 40f;
         attackSpeed = 0.8f;
         skillSpeed = 1.2f;
+        jumpPow += 30f;
     }
     public override void AlertObservers(string message)
     {

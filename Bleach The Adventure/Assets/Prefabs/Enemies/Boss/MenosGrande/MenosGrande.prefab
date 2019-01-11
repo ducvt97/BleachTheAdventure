@@ -362,6 +362,7 @@ MonoBehaviour:
   curHP: 0
   maxHP: 0
   faceRight: 0
+  isInvulnerable: 0
   isBlocking: 0
   isTeleport: 0
   isAction: 0

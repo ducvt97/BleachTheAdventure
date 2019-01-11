@@ -76,12 +76,14 @@ public class Enemy : MonoBehaviour
 
     public virtual void Stand()
     {
+        isInvulnerable = false;
         state = 0;
         SetAction();
     }
 
     public virtual void Walk()
     {
+        isInvulnerable = false;
         state = 1;
         SetAction();
         var newPos = new Vector2(transform.position.x + speed, transform.position.y);
@@ -90,10 +92,13 @@ public class Enemy : MonoBehaviour
 
     public virtual void LoseHP(int hpLost)
     {
-        curHP -= hpLost;
-        state = 2;
-        SetAction();
-        Stand();
+        if (!isInvulnerable)
+        {
+            curHP -= hpLost;
+            state = 2;
+            SetAction();
+            Stand();
+        }
     }
     public void Dead()
     {
@@ -105,9 +110,12 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(!isInvulnerable)
-            //var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-                LoseHP(3);
+            if (!isInvulnerable)
+                target.TakeDamage2(damage);
+        }
+        if (other.CompareTag("PlayerAttack"))
+        {
+            LoseHP(10);
         }
         if (other.CompareTag("Edge"))
         {

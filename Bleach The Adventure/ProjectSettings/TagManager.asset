@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - EnermyAir
+  - EnemyAttack
+  - Sword1
+  - Sword2
+  - Air
+  - Edge
+  - Ground
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

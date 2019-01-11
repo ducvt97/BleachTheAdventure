@@ -259,6 +259,8 @@ public class IchigoScript : Character
     {
         if (!immortal)
         {
+            KnockBack();
+
             statHealth.CurrentVal -= 10;
             health = (int)statHealth.CurrentVal;
 
@@ -281,7 +283,34 @@ public class IchigoScript : Character
             }
         }
     }
+    public IEnumerator TakeDamage2(int hpLost)
+    {
+        if (!immortal)
+        {
+            KnockBack();
 
+            statHealth.CurrentVal -= hpLost;
+            health = (int)statHealth.CurrentVal;
+
+            if (!IsDead)
+            {
+                MyAnimator.SetTrigger("damage");
+                TakeDamageSound.Play();
+                immortal = true;
+
+                StartCoroutine(IndicateImmortal());
+                yield return new WaitForSeconds(immortalTime);
+
+                immortal = false;
+            }
+            else
+            {
+                MyAnimator.SetLayerWeight(1, 0);
+                MyAnimator.SetTrigger("die");
+                DeathSound.Play();
+            }
+        }
+    }
     public override void Death()
     {
         MyRigidbody.velocity = Vector2.zero;
@@ -290,5 +319,9 @@ public class IchigoScript : Character
         statHealth.CurrentVal = statHealth.MaxVal;
         transform.position = startPos;
     }
-
+    public void KnockBack()
+    {
+        var dir = facingRight ? Vector2.left : Vector2.right;
+        MyRigidbody.AddForce((Vector2.up + dir) * 130f);
+    }
 }
