@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8567074132867744879}
   - component: {fileID: 3430179775729703099}
+  - component: {fileID: 4644561747101605468}
   m_Layer: 0
   m_Name: AttackSpecial3
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +58,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.2103524, y: 0.17295516}
   m_EdgeRadius: 0
+--- !u!114 &4644561747101605468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2680629934102838230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!1 &5072635857250656954
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,9 +81,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6956170185811633756}
   - component: {fileID: 5765531775690633298}
+  - component: {fileID: 1011254065367844253}
   m_Layer: 0
   m_Name: AttackStand1
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +129,89 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.298173, y: 1.566818}
   m_EdgeRadius: 0
+--- !u!114 &1011254065367844253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072635857250656954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
+--- !u!1 &5755475661550984303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071100964243541888}
+  - component: {fileID: 3277175984360091549}
+  - component: {fileID: 1589587062226134975}
+  m_Layer: 0
+  m_Name: GroundPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1071100964243541888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755475661550984303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6695936588239220691}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3277175984360091549
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755475661550984303}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.013422012, y: -0.77848357}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5973363, y: 0.1409837}
+  m_EdgeRadius: 0
+--- !u!114 &1589587062226134975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755475661550984303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07149717b746964db2eb3deec39cbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5771520522750639298
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,9 +222,10 @@ GameObject:
   m_Component:
   - component: {fileID: 137566805380528480}
   - component: {fileID: 4891259920242639337}
+  - component: {fileID: 932207815854960982}
   m_Layer: 0
   m_Name: AttackAir
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +270,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6575651, y: 1.1400251}
   m_EdgeRadius: 0
+--- !u!114 &932207815854960982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771520522750639298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!1 &6481645815692982664
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,12 +295,11 @@ GameObject:
   - component: {fileID: 8525288341816919403}
   - component: {fileID: 5541036660457008516}
   - component: {fileID: 2339219068593698721}
-  - component: {fileID: 209402956094748660}
   - component: {fileID: 1731917081047734327}
   - component: {fileID: 109640711808932982}
   m_Layer: 0
   m_Name: Renji
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +322,7 @@ Transform:
   - {fileID: 5668702404304244141}
   - {fileID: 8567074132867744879}
   - {fileID: 2171186249090303452}
+  - {fileID: 1071100964243541888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -302,32 +414,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &209402956094748660
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6481645815692982664}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.027116299, y: -0.8134949}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.87, y: 1.68}
-    newSize: {x: 3.87, y: 1.68}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.22860098, y: 0.053010225}
-  m_EdgeRadius: 0
 --- !u!61 &1731917081047734327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -371,6 +457,7 @@ MonoBehaviour:
   curHP: 0
   maxHP: 0
   faceRight: 0
+  isInvulnerable: 0
   isBlocking: 0
   isTeleport: 0
   isAction: 0
@@ -393,9 +480,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2171186249090303452}
   - component: {fileID: 7668960917741442637}
+  - component: {fileID: 8745838175301090557}
   m_Layer: 0
   m_Name: Skill1
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,6 +528,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7225244, y: 1.3058177}
   m_EdgeRadius: 0
+--- !u!114 &8745838175301090557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650977915038422198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!1 &6843138079111753082
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,9 +551,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3150715502136709632}
   - component: {fileID: 3897492036956576670}
+  - component: {fileID: 4460854195048345092}
   m_Layer: 0
   m_Name: AttackSpecial1
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,6 +599,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.129214, y: 0.38018823}
   m_EdgeRadius: 0
+--- !u!114 &4460854195048345092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843138079111753082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!1 &9068247956370386777
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,9 +622,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3788582303461121960}
   - component: {fileID: 8815928175318084418}
+  - component: {fileID: 8245148497292241766}
   m_Layer: 0
   m_Name: AttackStand2
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,6 +670,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9131224, y: 1.026189}
   m_EdgeRadius: 0
+--- !u!114 &8245148497292241766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068247956370386777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!1 &9138698929018003273
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,9 +693,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5668702404304244141}
   - component: {fileID: 2176230328802883436}
+  - component: {fileID: 2824097918494821948}
   m_Layer: 0
   m_Name: AttackSpecial2
-  m_TagString: Untagged
+  m_TagString: EnemyAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -611,3 +741,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.1382594, y: 0.7737273}
   m_EdgeRadius: 0
+--- !u!114 &2824097918494821948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138698929018003273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0

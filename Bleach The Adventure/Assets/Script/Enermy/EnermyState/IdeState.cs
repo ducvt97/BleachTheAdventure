@@ -18,8 +18,6 @@ public class IdeState : IEnermyState
 
     public void Execute()
     {
-        Debug.Log("reeeeee");
-
         Idle();
 
         if (enermy.Target != null)

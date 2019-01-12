@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         //sound = GameObject.FindObjectOfType<SoundManager>();
         state = 0;
-        maxHP = curHP = 5;
+        maxHP = curHP = 30;
         faceRight = isAwake = isInvulnerable = false;
         curHP = maxHP;
         attackDelay = skillDelay = 0f;
@@ -88,16 +88,38 @@ public class Enemy : MonoBehaviour
         var newPos = new Vector2(transform.position.x + speed, transform.position.y);
         transform.position = newPos;
     }
-
-    public virtual void LoseHP(int hpLost)
+    public IEnumerator IndicateImmortal()
     {
-        curHP -= hpLost;
-        state = 2;
-        SetAction();
-        Stand();
+        var spriteRender = GetComponent<SpriteRenderer>();
+        while (isInvulnerable)
+        {
+            spriteRender.enabled = false;
+
+            yield return new WaitForSeconds(.1f);
+
+            spriteRender.enabled = true;
+
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+    public IEnumerator LoseHP(int hpLost)
+    {
+        if (!isInvulnerable)
+        {
+            curHP -= hpLost;
+            state = 2;
+            SetAction();
+            isInvulnerable = true;
+            StartCoroutine(IndicateImmortal());
+            yield return new WaitForSeconds(1f);
+            isInvulnerable = false;
+            Stand();
+        }
+        
     }
     public void Dead()
     {
+        isInvulnerable = true;
         state = 3;
         SetAction();
     }
@@ -106,11 +128,11 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if (!isInvulnerable)
-                target.TakeDamage2(damage);
+                StartCoroutine(target.TakeDamage());
         }
         if (other.CompareTag("PlayerAttack") || other.CompareTag("Air"))
         {
-            LoseHP(10);
+            StartCoroutine(LoseHP(10));
         }
         if (other.CompareTag("Edge"))
         {

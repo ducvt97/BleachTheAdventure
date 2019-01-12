@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 4212470161216597287}
   - component: {fileID: 1267968076956403401}
   - component: {fileID: 7709474100599755764}
-  - component: {fileID: 5174524799139839773}
   - component: {fileID: 1204778063967213460}
   - component: {fileID: 3193420520879921291}
   m_Layer: 0
   m_Name: Urahara
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,6 +36,7 @@ Transform:
   - {fileID: 6579418447675489109}
   - {fileID: 27203047230115247}
   - {fileID: 1899739285902258000}
+  - {fileID: 7686572874285760733}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,32 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37429714, y: 1.0175295}
   m_EdgeRadius: 0
---- !u!61 &5174524799139839773
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222851466181665673}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0039548874, y: -0.723706}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.32, y: 1.5}
-    newSize: {x: 2.32, y: 1.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2872944, y: 0.052587986}
-  m_EdgeRadius: 0
 --- !u!95 &1204778063967213460
 Animator:
   serializedVersion: 3
@@ -197,6 +171,7 @@ MonoBehaviour:
   curHP: 0
   maxHP: 0
   faceRight: 0
+  isInvulnerable: 0
   isBlocking: 0
   isTeleport: 0
   isAction: 0
@@ -217,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2562263127144960391}
   - component: {fileID: 7631548163076322024}
-  - component: {fileID: 3948971943371291896}
+  - component: {fileID: 8818686623240786286}
   m_Layer: 0
   m_Name: AttackStand1
   m_TagString: Untagged
@@ -262,38 +237,36 @@ EdgeCollider2D:
   - {x: -1.0924492, y: -0.380975}
   - {x: -0.7285576, y: -0.10962343}
   - {x: -0.4754734, y: 0.026718855}
-  - {x: -0.3305292, y: 0.097754955}
-  - {x: -0.08980274, y: 0.17517781}
-  - {x: 0.16304684, y: 0.23858523}
-  - {x: 0.18261719, y: 0.24846244}
-  - {x: 0.16830349, y: 0.24078798}
---- !u!68 &3948971943371291896
-EdgeCollider2D:
+  - {x: -0.40793324, y: 0.06872845}
+  - {x: -0.52519894, y: 0.16550231}
+  - {x: -0.67871857, y: 0.296638}
+  - {x: 0.034059525, y: 0.19984055}
+  - {x: 0.1467123, y: 0.2278924}
+  - {x: 0.3528986, y: 0.26694012}
+  - {x: 0.67706394, y: 0.29219842}
+  - {x: 0.602725, y: 0.21661806}
+  - {x: 0.40864754, y: 0.06976366}
+  - {x: 0.8763342, y: -0.20545626}
+  - {x: 1.030469, y: -0.32300568}
+  - {x: 1.1413336, y: -0.44061422}
+  - {x: 1.1473846, y: -0.50815916}
+  - {x: 1.0858555, y: -0.545537}
+  - {x: 1.0010681, y: -0.55427885}
+  - {x: 0.8480692, y: -0.544168}
+  - {x: 0.4959259, y: -0.52243376}
+--- !u!114 &8818686623240786286
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310444340088525329}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.14473438, y: 0.24078798}
-  - {x: -0.14789677, y: 0.23819613}
-  - {x: 0.18555832, y: 0.14573193}
-  - {x: 0.5003147, y: 0.013598919}
-  - {x: 0.8088074, y: -0.15809584}
-  - {x: 0.9661875, y: -0.27828598}
-  - {x: 1.0860786, y: -0.37962508}
-  - {x: 1.1628513, y: -0.49054337}
-  - {x: 1.1132641, y: -0.5352421}
-  - {x: 0.96967506, y: -0.5600352}
-  - {x: 0.4844284, y: -0.5255356}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!1 &2953765248357079442
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1899739285902258000}
   - component: {fileID: 8194953867633868723}
+  - component: {fileID: 2253272034879642404}
   m_Layer: 0
   m_Name: AttackAir2
   m_TagString: Untagged
@@ -351,6 +325,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1625519, y: 1.463274}
   m_EdgeRadius: 0
+--- !u!114 &2253272034879642404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953765248357079442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!1 &5819330191272452964
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 27203047230115247}
   - component: {fileID: 4448331791395207650}
+  - component: {fileID: 7761596485758571364}
   m_Layer: 0
   m_Name: AttackAir1
   m_TagString: Untagged
@@ -408,6 +396,89 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.081275, y: 0.20349264}
   m_EdgeRadius: 0
+--- !u!114 &7761596485758571364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819330191272452964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
+--- !u!1 &6468867044739190207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7686572874285760733}
+  - component: {fileID: 388678480481452322}
+  - component: {fileID: 2259413606949469781}
+  m_Layer: 0
+  m_Name: GroundPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7686572874285760733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468867044739190207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9200153907585425290}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &388678480481452322
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468867044739190207}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008410454, y: -0.70369506}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.40005875, y: 0.07490587}
+  m_EdgeRadius: 0
+--- !u!114 &2259413606949469781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468867044739190207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07149717b746964db2eb3deec39cbee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8413075080087693044
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6579418447675489109}
   - component: {fileID: 8582961111264945014}
+  - component: {fileID: 2125010058435120588}
   m_Layer: 0
   m_Name: AttackStand2
   m_TagString: Untagged
@@ -465,3 +537,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6989746, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2125010058435120588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8413075080087693044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24eaa00e685c4564d9990606e8c65874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0

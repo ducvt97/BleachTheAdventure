@@ -18,8 +18,6 @@ public class Hollow3IdeState : Hollow3IEnermyState
 
     public void Execute()
     {
-        Debug.Log("reeeeee");
-
         Idle();
 
         if (enermy.Target != null)

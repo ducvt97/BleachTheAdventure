@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Renji : Boss
 {
@@ -13,7 +14,10 @@ public class Renji : Boss
     public override void Start()
     {
         base.Start();
-        //sound = GameObject.FindObjectOfType<SoundManager>();
+        var m_Scene = SceneManager.GetActiveScene();
+        if (m_Scene.name == "Level3")
+            form = 1;
+        else form = 2;
         attackStand1.enabled = attackStand2.enabled = attackAir.enabled = 
             attackSpecial1.enabled = attackSpecial2.enabled = attackSpecial3.enabled = skill1.enabled = false;
     }
@@ -26,7 +30,7 @@ public class Renji : Boss
             if (CheckRange())
             {
                 if (form == 1)
-                    Form2();
+                    Form1();
                 else if (form == 2)
                     Form2();
             }

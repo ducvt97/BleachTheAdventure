@@ -18,8 +18,6 @@ public class BonnieIdeState : BonnieIEnermyState
 
     public void Execute()
     {
-        Debug.Log("reeeeee");
-
         Idle();
 
         if (enermy.Target != null)

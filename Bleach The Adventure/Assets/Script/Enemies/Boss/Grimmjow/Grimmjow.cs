@@ -269,6 +269,7 @@ public class Grimmjow : Boss
         attackSpeed = 0.8f;
         skillSpeed = 1.2f;
         jumpPow += 30f;
+        maxHP = 150;
     }
     public override void AlertObservers(string message)
     {
@@ -279,6 +280,7 @@ public class Grimmjow : Boss
                 Transform();
                 break;
             case "TransformEnd":
+                IncreasePower();
                 curHP = maxHP;
                 isAction = false;
                 form = 2;

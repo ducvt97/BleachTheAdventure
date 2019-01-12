@@ -14,6 +14,7 @@ public class Boss : Enemy
     {
         base.Start();
         //sound = GameObject.FindObjectOfType<SoundManager>();
+        curHP = maxHP = 100;
         isBlocking = isTeleport = isAction = false;
         form = 1;
         teleportDelay = 1f;
@@ -29,11 +30,7 @@ public class Boss : Enemy
             return true;
         return false;
     }
-    //public override void LoseHP(int hpLost)
-    //{
-    //    if(!isBlocking && !isTeleport)
-    //        base.LoseHP(hpLost);
-    //}
+
     public override void Stand()
     {
         isAction = false;
