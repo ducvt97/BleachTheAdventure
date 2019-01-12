@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8599382087701516390}
   m_Layer: 0
   m_Name: KenpachiSkill1
-  m_TagString: Untagged
+  m_TagString: EnermyAir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

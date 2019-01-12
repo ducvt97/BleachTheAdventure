@@ -108,6 +108,10 @@ public class Enemy : MonoBehaviour
             if (!isInvulnerable)
                 target.TakeDamage2(damage);
         }
+        if (other.CompareTag("PlayerAttack") || other.CompareTag("Air"))
+        {
+            LoseHP(10);
+        }
         if (other.CompareTag("Edge"))
         {
             Flip();

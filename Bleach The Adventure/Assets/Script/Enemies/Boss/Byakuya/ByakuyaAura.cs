@@ -10,7 +10,8 @@ public class ByakuyaAura : Aura
     // Update is called once per frame
     public override void FixedUpdate()
     {
-        transform.position = new Vector3(follow.transform.position.x - 1f, follow.transform.position.y + 0.5f, 0);
+        transform.position = faceRight ? new Vector3(follow.transform.position.x + 0.5f, follow.transform.position.y + 0.5f, 0)
+            : new Vector3(follow.transform.position.x - 0.5f, follow.transform.position.y + 0.5f, 0);
         var byakuya = follow.GetComponent<Byakuya>();
         if (((byakuya.target.transform.position.x < transform.position.x && !faceRight) ||
             (byakuya.target.transform.position.x > transform.position.x && faceRight)))

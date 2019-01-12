@@ -21,29 +21,35 @@ public class Byakuya : Boss
     // Update is called once per frame
     public override void Update()
     {
-        if(curHP > 0)
+        if (curHP > 0)
         {
-            if (((target.transform.position.x < transform.position.x && !faceRight) ||
-            (target.transform.position.x > transform.position.x && faceRight)))
-                Flip();
-            if (!isAction)
+            if (CheckRange())
             {
-                if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
+                if (((target.transform.position.x < transform.position.x && !faceRight) ||
+                    (target.transform.position.x > transform.position.x && faceRight)))
                 {
-                    if (Math.Abs(target.transform.position.y - transform.position.y) < 0.5f)
-                        AttackStand();
-                    else
-                        AttackAir();
+                    Flip();
                 }
-                else
+
+                if (!isAction)
                 {
-                    if (Math.Abs(target.transform.position.x - transform.position.x) < 4f)
+                    if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
                     {
-                        Skill();
-                        
+                        if (Math.Abs(target.transform.position.y - transform.position.y) < 0.5f)
+                            AttackStand();
+                        else
+                            AttackAir();
                     }
                     else
-                        Move();
+                    {
+                        if (Math.Abs(target.transform.position.x - transform.position.x) < 4f)
+                        {
+                            Skill();
+
+                        }
+                        else
+                            Move();
+                    }
                 }
             }
         }
@@ -64,7 +70,7 @@ public class Byakuya : Boss
     void Aura()
     {
         GameObject auraClone;
-        auraClone = Instantiate(aura, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)), this.transform);
+        auraClone = Instantiate(aura, transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         auraClone.GetComponent<ByakuyaAura>().Initialize(gameObject);
     }
     void AttackStand()

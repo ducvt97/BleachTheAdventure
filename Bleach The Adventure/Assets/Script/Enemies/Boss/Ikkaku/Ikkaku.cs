@@ -23,20 +23,23 @@ public class Ikkaku : Boss
     {
         if (curHP > 0)
         {
-            if (((target.transform.position.x < transform.position.x && !faceRight) ||
-                (target.transform.position.x > transform.position.x && faceRight)))
-                Flip();
-            if (!isAction)
+            if (CheckRange())
             {
-                if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
-                    if (Math.Abs(target.transform.position.y - transform.position.y) < 0.5f)
-                        AttackStand();
+                if (((target.transform.position.x < transform.position.x && !faceRight) ||
+                        (target.transform.position.x > transform.position.x && faceRight)))
+                    Flip();
+                if (!isAction)
+                {
+                    if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
+                        if (Math.Abs(target.transform.position.y - transform.position.y) < 0.5f)
+                            AttackStand();
+                        else
+                            AttackAir();
+                    else if (Math.Abs(target.transform.position.x - transform.position.x) < 3f)
+                        Skill();
                     else
-                        AttackAir();
-                else if (Math.Abs(target.transform.position.x - transform.position.x) < 3f)
-                    Skill();
-                else
-                    Move();
+                        Move();
+                }
             }
         }
         else

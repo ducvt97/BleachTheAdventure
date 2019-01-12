@@ -171,6 +171,20 @@ MonoBehaviour:
   airControl: 1
   jumpForce: 350
   immortalTime: 3
+  statHealth:
+    bar: {fileID: 0}
+    maxVal: 0
+    curVal: 0
+  statEnergy:
+    bar: {fileID: 0}
+    maxVal: 0
+    curVal: 0
+  JumpSound: {fileID: 0}
+  Attack1Sound: {fileID: 0}
+  Attack2Sound: {fileID: 0}
+  AttackAirSound: {fileID: 0}
+  TakeDamageSound: {fileID: 0}
+  DeathSound: {fileID: 0}
 --- !u!50 &5737454658363393450
 Rigidbody2D:
   serializedVersion: 4
@@ -291,7 +305,7 @@ GameObject:
   - component: {fileID: 6017703662761713390}
   m_Layer: 0
   m_Name: SwordCollider
-  m_TagString: Sword1
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +389,7 @@ GameObject:
   - component: {fileID: 6017703663215810345}
   m_Layer: 0
   m_Name: SwordCollider2
-  m_TagString: Sword2
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

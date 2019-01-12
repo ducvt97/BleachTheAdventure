@@ -21,10 +21,13 @@ public class Kenpachi : Boss
     // Update is called once per frame
     public override void Update()
     {
-        if (form == 1)
-            Form1();
-        else if (form == 2)
-            Form2();
+        if (CheckRange())
+        {
+            if (form == 1)
+                Form1();
+            else if (form == 2)
+                Form2();
+        }
     }
 
     void Form1()

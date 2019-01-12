@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,11 +22,18 @@ public class Boss : Enemy
         attackSpeed = 1f;
         skillSpeed = 1.5f;
     }
-    public override void LoseHP(int hpLost)
+    public bool CheckRange()
     {
-        if(!isBlocking && !isTeleport)
-            base.LoseHP(hpLost);
+        if (Math.Abs(transform.position.x - target.transform.position.x) < 15f &&
+            Math.Abs(transform.position.y - target.transform.position.y) < 4f)
+            return true;
+        return false;
     }
+    //public override void LoseHP(int hpLost)
+    //{
+    //    if(!isBlocking && !isTeleport)
+    //        base.LoseHP(hpLost);
+    //}
     public override void Stand()
     {
         isAction = false;
@@ -49,7 +57,7 @@ public class Boss : Enemy
     }
     public virtual void Teleport()
     {
-        isTeleport = true;
+        isInvulnerable = true;
         isAction = true;
         state = 5;
         SetAction();
@@ -58,7 +66,7 @@ public class Boss : Enemy
     }
     public void Block()
     {
-        isBlocking = true;
+        isInvulnerable = true;
         isAction = true;
         state = 4;
         SetAction();
@@ -79,12 +87,12 @@ public class Boss : Enemy
         switch (message)
         {
             case "BlockEnd":
-                isBlocking = false;
+                isInvulnerable = false;
                 isAction = false;
                 Stand();
                 break;
             case "TeleportEnd":
-                isTeleport = false;
+                isInvulnerable = false;
                 isAction = false;
                 state = 0;
                 SetAction();

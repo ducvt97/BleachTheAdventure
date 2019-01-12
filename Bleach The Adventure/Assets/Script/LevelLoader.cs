@@ -28,13 +28,17 @@ public class LevelLoader : MonoBehaviour
 	{
 		if (SceneManager.GetActiveScene().buildIndex != 0)
 		{
-			if (ChildCount(enemy) == 0)
-			{
-				if (SceneManager.GetActiveScene().buildIndex != 13)
-				LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
-				else
-				LoadLevel(0);
-			}
+            if (enemy != null)
+            {
+                if (ChildCount(enemy) == 0)
+                {
+                    if (SceneManager.GetActiveScene().buildIndex != 13)
+                        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+                    else
+                        LoadLevel(0);
+                }
+            }
+			
 		}
 	}
 	public void LoadLevel(int sceneIndex)

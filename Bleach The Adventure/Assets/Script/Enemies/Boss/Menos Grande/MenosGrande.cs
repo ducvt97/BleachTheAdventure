@@ -24,23 +24,26 @@ public class MenosGrande : Boss
     {
         if (curHP > 0)
         {
-            if (((target.transform.position.x < transform.position.x && !faceRight) ||
-            (target.transform.position.x > transform.position.x && faceRight)))
-                Flip();
-            if (!isAction)
+            if (CheckRange())
             {
-                if (Math.Abs(target.transform.position.x - transform.position.x) < 1.5f)
+                if (((target.transform.position.x < transform.position.x && !faceRight) ||
+                    (target.transform.position.x > transform.position.x && faceRight)))
+                    Flip();
+                if (!isAction)
                 {
-                    Attack();
-                }
-                else
-                {
-                    if (Math.Abs(target.transform.position.x - transform.position.x) < 4f)
+                    if (Math.Abs(target.transform.position.x - transform.position.x) < 1.5f)
                     {
-                        SpecialAction();
+                        Attack();
                     }
                     else
-                        Move();
+                    {
+                        if (Math.Abs(target.transform.position.x - transform.position.x) < 4f)
+                        {
+                            SpecialAction();
+                        }
+                        else
+                            Move();
+                    }
                 }
             }
         }

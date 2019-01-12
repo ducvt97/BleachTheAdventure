@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9199391737922820036}
   m_Layer: 0
   m_Name: GrimmjowForm2_Skill2
-  m_TagString: Untagged
+  m_TagString: EnermyAir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

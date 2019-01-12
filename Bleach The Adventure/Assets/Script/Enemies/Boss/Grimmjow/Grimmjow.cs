@@ -23,23 +23,26 @@ public class Grimmjow : Boss
     {
         if (curHP > 0)
         {
-            if (((target.transform.position.x < transform.position.x && !faceRight) ||
-            (target.transform.position.x > transform.position.x && faceRight)))
-                Flip();
-            if (!isAction)
+            if (CheckRange())
             {
-                if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
+                if (((target.transform.position.x < transform.position.x && !faceRight) ||
+            (target.transform.position.x > transform.position.x && faceRight)))
+                    Flip();
+                if (!isAction)
                 {
-                    Attack();
-                }
-                else
-                {
-                    if (Math.Abs(target.transform.position.x - transform.position.x) < 4f)
+                    if (Math.Abs(target.transform.position.x - transform.position.x) < 1f)
                     {
-                        Skill();
+                        Attack();
                     }
                     else
-                        Move();
+                    {
+                        if (Math.Abs(target.transform.position.x - transform.position.x) < 4f)
+                        {
+                            Skill();
+                        }
+                        else
+                            Move();
+                    }
                 }
             }
         }

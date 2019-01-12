@@ -23,10 +23,13 @@ public class Renji : Boss
     {
         if (curHP > 0)
         {
-            if (form == 1)
-                Form2();
-            else if (form == 2)
-                Form2();
+            if (CheckRange())
+            {
+                if (form == 1)
+                    Form2();
+                else if (form == 2)
+                    Form2();
+            }
         }
         else
         {

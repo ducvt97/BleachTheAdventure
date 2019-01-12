@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7683600337192380482}
   m_Layer: 0
   m_Name: RangikuSkill
-  m_TagString: Untagged
+  m_TagString: EnermyAir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
