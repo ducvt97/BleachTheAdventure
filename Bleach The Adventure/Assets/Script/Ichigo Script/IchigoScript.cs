@@ -53,6 +53,8 @@ public class IchigoScript : Character
 
     public bool Jump { get; set; }
 
+    public bool Form2 { get; set; }
+
     public bool OnGround { get; set; }
     [SerializeField]
     private Stat statHealth;
@@ -185,6 +187,15 @@ public class IchigoScript : Character
         {
             MyAnimator.SetTrigger("attack_air");
             AttackAirSound.Play();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            //MyAnimator.SetTrigger("attack_air");
+            //AttackAirSound.Play();
+            if(this.statEnergy.CurrentVal >= 100)
+            {
+
+            }
         }
     }
 

@@ -108,4 +108,17 @@ public abstract class Character : MonoBehaviour
             StartCoroutine(TakeDamage());
         }
     }
+
+    /*public int FindSth(List<int> list)
+    {
+        int max = 0;
+        for(int i = 0; i < list.Count - 1; i++)
+        {
+            for (int j=i+1;j< list.Count; j++)
+            {
+
+            }
+        }
+        return 0;
+    }*/
 }
