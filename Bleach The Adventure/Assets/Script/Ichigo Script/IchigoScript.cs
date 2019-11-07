@@ -88,6 +88,8 @@ public class IchigoScript : Character
 
     private Vector2 startPos;
 
+    public List<Collider2D> attackColliders;
+
     // Start is called before the first frame update
     private void Awake()
     {
