@@ -15,6 +15,7 @@ public abstract class CharacterOld : MonoBehaviour
     protected int hp;               // current health point of the character
     protected int mp;               // current mana point of the character (neccessary for using skill)
     protected float attackDelay;    // time between 2 attack or skill
+    protected float teleportDelay;  // time between 2 times teleport
 
     [SerializeField]
     protected Collider2D bodyCollider;
@@ -22,6 +23,8 @@ public abstract class CharacterOld : MonoBehaviour
     protected Rigidbody2D myRigidbody;
 
     protected SpriteRenderer spriteRenderer;
+
+    protected Animator animator;
 
     [SerializeField]
     protected List<GameObject> attackColliderResources;
@@ -98,17 +101,20 @@ public abstract class CharacterOld : MonoBehaviour
 
     public CharacterOld() { }
 
-    protected void Start()
+    protected virtual void Awake() { }
+
+    protected virtual void Start()
     {
         this.myRigidbody = GetComponent<Rigidbody2D>();
         this.spriteRenderer = GetComponent<SpriteRenderer>();
+        this.animator = GetComponent<Animator>();
     }
 
     protected abstract void Update();
 
     protected abstract void FixedUpdate();
 
-    protected abstract void OnTriggerEnter2D();
+    protected abstract void OnTriggerEnter2D(Collider2D collider);
 
     protected void Dead()
     {
@@ -133,13 +139,19 @@ public abstract class CharacterOld : MonoBehaviour
         }
     }
 
-    protected void Flip()
+    protected void Flip(float horizontal)
+    {
+        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
+        {
+            ChangeDirection();
+        }
+    }
+
+    public void ChangeDirection()
     {
         this.facingRight = !this.facingRight;
         this.speed *= -1;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        this.transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
     }
 
     public void KnockBack()

@@ -96,6 +96,7 @@ public class IchigoScript : Character
         statHealth.Init();
         statEnergy.Init();
     }
+
     public override void Start()
     {
         base.Start();
@@ -136,7 +137,7 @@ public class IchigoScript : Character
         
 
     }
-    
+
     public void OnDead()
     {
         if (Dead != null)
